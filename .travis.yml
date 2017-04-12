@@ -1,5 +1,10 @@
 language: csharp
+dist: trusty
 mono: none
 dotnet: 1.0.1
 script:
   - ./build.sh
+notifications:
+  email:
+    on_success: never
+    on_failure: always
