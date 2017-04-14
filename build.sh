@@ -7,3 +7,9 @@ dotnet build src/Core/NetCoreCqrsEsSample.Commands/
 # build Events
 dotnet restore src/Core/NetCoreCqrsEsSample.Events/
 dotnet build src/Core/NetCoreCqrsEsSample.Events/
+# build Events
+dotnet restore src/Infrastructure/NetCoreCqrsEsSample.Commands/
+dotnet build src/Infrastructure/NetCoreCqrsEsSample.Commands/
+# build Events
+dotnet restore src/Infrastructure/NetCoreCqrsEsSample.Data/
+dotnet build src/Infrastructure/NetCoreCqrsEsSample.Data/

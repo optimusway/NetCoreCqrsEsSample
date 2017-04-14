@@ -1,7 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\NetCoreCqrsEsSample.Domain\NetCoreCqrsEsSample.Domain.csproj" />
+    <ProjectReference Include="..\..\Core\NetCoreCqrsEsSample.Commands\NetCoreCqrsEsSample.Commands.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
