@@ -13,3 +13,6 @@ dotnet build src/Infrastructure/NetCoreCqrsEsSample.Commands/
 # build Events
 dotnet restore src/Infrastructure/NetCoreCqrsEsSample.Data/
 dotnet build src/Infrastructure/NetCoreCqrsEsSample.Data/
+# build Events
+dotnet restore src/Services/NetCoreCqrsEsSample.Services.CounterService/
+dotnet build src/Services/NetCoreCqrsEsSample.Services.CounterService/

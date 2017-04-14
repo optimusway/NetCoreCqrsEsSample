@@ -1,20 +1,33 @@
-using System;
 using System.Threading.Tasks;
 using NetCoreCqrsEsSample.Commands;
+using NetCoreCqrsEsSample.Domain.Services;
 
 namespace NetCoreCqrsEsSample.Infrastructure.Commands
 {
-    public class CounterCommandHandler: ICommandHandler<IncrementCommand>,
+    public class CounterCommandHandler : ICommandHandler<IncrementCommand>,
                                         ICommandHandler<DecrementCommand>
     {
-        public Task HandleAsync(DecrementCommand command)
+        private readonly ICounterService _service;
+        public CounterCommandHandler(ICounterService service)
         {
-            throw new NotImplementedException();
+            this._service = service;
+
         }
 
-        Task ICommandHandler<IncrementCommand>.HandleAsync(IncrementCommand command)
+        public Task HandleAsync(IncrementCommand command)
         {
-            throw new NotImplementedException();
+            var counter = _service.Get();
+            counter.Increment();
+            
+            return Task.CompletedTask;
+        }
+        
+        public Task HandleAsync(DecrementCommand command)
+        {
+            var counter = _service.Get();
+            counter.Decrement();
+            
+            return Task.CompletedTask;
         }
     }
 }

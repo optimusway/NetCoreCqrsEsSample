@@ -12,5 +12,6 @@ namespace NetCoreCqrsEsSample.Domain.Models
         public int Value { get; private set; }
 
         public void Increment() => this.Value += 1;
+        public void Decrement() => this.Value -= 1;
     }
 }
