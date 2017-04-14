@@ -7,10 +7,15 @@ namespace NetCoreCqrsEsSample.Commands
     {
         private readonly IComponentContext _context;
 
+        public CommandDispatcher(IComponentContext context)
+        {
+            _context = context;
+        }
+
         public async Task DispatchAsync<T>(T command) where T : ICommand
         {
-            var _handler = _context.Resolve<ICommandHandler<T>>();
-            await _handler.HandleAsync(command);
+            var handler = _context.Resolve<ICommandHandler<T>>();
+            await handler.HandleAsync(command);
         }
     }
 }
