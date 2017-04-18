@@ -1,4 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetCoreCqrsEsSample.Events\NetCoreCqrsEsSample.Events.csproj" />
+  </ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
