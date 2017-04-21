@@ -4,7 +4,7 @@ using NetCoreCqrsEsSample.Domain.EventStore;
 
 namespace NetCoreCqrsEsSample.Domain.Repositories
 {
-    public class EventRepo<T>: IEventRepo<T> where T: AggregateRoot, new()
+    public class EventRepo<T> : IEventRepo<T> where T : AggregateRoot, new()
     {
         private readonly IEventStore _eventStore;
 
@@ -12,6 +12,7 @@ namespace NetCoreCqrsEsSample.Domain.Repositories
         {
             _eventStore = eventStore;
         }
+
         public T GetById(Guid aggregateId)
         {
             var events = _eventStore.GetEvents(aggregateId);

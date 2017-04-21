@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using NetCoreCqrsEsSample.Commands;
 using NetCoreCqrsEsSample.Domain.Repositories;
-using NetCoreCqrsEsSample.Domain.Services;
 
 namespace NetCoreCqrsEsSample.Infrastructure.Commands
 {
