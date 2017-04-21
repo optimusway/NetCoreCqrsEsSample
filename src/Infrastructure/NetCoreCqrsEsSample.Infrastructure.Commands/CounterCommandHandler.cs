@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using NetCoreCqrsEsSample.Commands;
+using NetCoreCqrsEsSample.Domain.Repositories;
 using NetCoreCqrsEsSample.Domain.Services;
 
 namespace NetCoreCqrsEsSample.Infrastructure.Commands
@@ -7,27 +8,24 @@ namespace NetCoreCqrsEsSample.Infrastructure.Commands
     public class CounterCommandHandler : ICommandHandler<IncrementCommand>,
                                         ICommandHandler<DecrementCommand>
     {
-        private readonly ICounterService _service;
-        public CounterCommandHandler(ICounterService service)
-        {
-            this._service = service;
-
-        }
-
-        public Task HandleAsync(IncrementCommand command)
-        {
-            var counter = _service.Get();
-            counter.Increment();
-            
-            return Task.CompletedTask;
-        }
+        private readonly ICounterRepo _repo;
         
-        public Task HandleAsync(DecrementCommand command)
+        public CounterCommandHandler(ICounterRepo repo)
         {
-            var counter = _service.Get();
+            this._repo = repo;
+
+        }
+
+        public async Task HandleAsync(IncrementCommand command)
+        {
+            var counter = await _repo.GetAsync();
+            counter.Increment();
+        }
+
+        public async Task HandleAsync(DecrementCommand command)
+        {
+            var counter = await _repo.GetAsync();
             counter.Decrement();
-            
-            return Task.CompletedTask;
         }
     }
 }
