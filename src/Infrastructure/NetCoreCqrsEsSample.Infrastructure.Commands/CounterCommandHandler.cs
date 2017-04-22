@@ -5,10 +5,10 @@ using NetCoreCqrsEsSample.Domain.Repositories;
 namespace NetCoreCqrsEsSample.Infrastructure.Commands
 {
     public class CounterCommandHandler : ICommandHandler<IncrementCommand>,
-                                        ICommandHandler<DecrementCommand>
+                                         ICommandHandler<DecrementCommand>
     {
         private readonly ICounterRepo _repo;
-        
+
         public CounterCommandHandler(ICounterRepo repo)
         {
             this._repo = repo;
