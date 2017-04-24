@@ -1,3 +1,4 @@
+using System;
 using NetCoreCqrsEsSample.Domain.Abstractions;
 using NetCoreCqrsEsSample.Events.Counter;
 
@@ -23,6 +24,12 @@ namespace NetCoreCqrsEsSample.Domain.Models
         public void Apply(CounterDecremented e)
         {
             this.Value = e.Value;
+        }
+
+        protected override void RegisterAppliers()
+        {
+            RegisterApplier<CounterIncremented>(Apply);
+            RegisterApplier<CounterDecremented>(Apply);
         }
     }
 }

@@ -1,7 +1,10 @@
+using System;
+
 namespace NetCoreCqrsEsSample.Events.Counter
 {
-    public class CounterIncremented : BaseEvent
+    public class CounterIncremented : IEvent
     {
+        public int Version { get; set; }
         public readonly int Value;
 
         public CounterIncremented(int value)
@@ -9,10 +12,11 @@ namespace NetCoreCqrsEsSample.Events.Counter
             Value = value;
         }
     }
-    public class CounterDecremented : BaseEvent
+    public class CounterDecremented : IEvent
     {
+        public int Version { get; set; }
         public readonly int Value;
-        
+
         public CounterDecremented(int value)
         {
             Value = value;

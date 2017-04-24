@@ -14,8 +14,8 @@ namespace NetCoreCqrsEsSample.Api.IoC
                 .Assembly;
 
             builder.RegisterAssemblyTypes(assembly)
-                   .AsClosedTypesOf(typeof(ICommandHandler<>))
-                   .InstancePerLifetimeScope();
+                .AsClosedTypesOf(typeof(ICommandHandler<>))
+                .InstancePerLifetimeScope();
 
             builder.RegisterType<CommandDispatcher>()
                 .As<ICommandDispatcher>()
