@@ -6,23 +6,23 @@ namespace NetCoreCqrsEsSample.Domain.Models
     public class Counter : AggregateRoot
     {
         public int Value { get; private set; }
-        
+
         public Counter(int initialValue = 0)
         {
             this.Value = initialValue;
         }
 
-        public void Increment() => this.Value += 1;
-        public void Decrement() => this.Value -= 1;
+        public void Increment() => ApplyChange(new CounterIncremented(this.Value + 1));
+        public void Decrement() => ApplyChange(new CounterDecremented(this.Value + 1));
 
-        public void Apply(Incremented @event)
+        public void Apply(CounterIncremented e)
         {
-
+            this.Value = e.Value;
         }
 
-        public void Apply(Decremented @event)
+        public void Apply(CounterDecremented e)
         {
-
+            this.Value = e.Value;
         }
     }
 }
