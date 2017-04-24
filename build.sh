@@ -19,3 +19,7 @@ dotnet build src/Services/NetCoreCqrsEsSample.Service.CounterService/
 # build ServiceHost
 dotnet restore src/Services/NetCoreCqrsEsSample.Service.Host/
 dotnet build src/Services/NetCoreCqrsEsSample.Service.Host/
+
+# build tests
+dotnet restore tests/NetCoreCqrsEsSample.Tests/NetCoreCqrsEsSample.Tests.csproj
+dotnet build tests/NetCoreCqrsEsSample.Tests/NetCoreCqrsEsSample.Tests.csproj
