@@ -12,6 +12,7 @@ namespace NetCoreCqrsEsSample.Events.Counter
             Value = value;
         }
     }
+    
     public class CounterDecremented : IEvent
     {
         public int Version { get; set; }

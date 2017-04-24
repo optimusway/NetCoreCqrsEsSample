@@ -22,7 +22,6 @@ namespace NetCoreCqrsEsSample.Data.EventStore
                 this.Id = id;
                 this.EventData = eventData;
                 this.Version = version;
-
             }
         }
 
