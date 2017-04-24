@@ -5,8 +5,10 @@ mono: none
 dotnet: 1.0.1
 before_script:
   - chmod a+x ./build.sh
+  - chmod a+x ./test.sh
 script:
   - ./build.sh
+  - ./test.sh
 notifications:
   email:
     on_success: never
