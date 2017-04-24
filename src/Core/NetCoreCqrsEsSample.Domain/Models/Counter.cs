@@ -13,7 +13,7 @@ namespace NetCoreCqrsEsSample.Domain.Models
         }
 
         public void Increment() => ApplyChange(new CounterIncremented(this.Value + 1));
-        public void Decrement() => ApplyChange(new CounterDecremented(this.Value + 1));
+        public void Decrement() => ApplyChange(new CounterDecremented(this.Value - 1));
 
         public void Apply(CounterIncremented e)
         {

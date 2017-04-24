@@ -28,7 +28,7 @@ namespace NetCoreCqrsEsSample.Domain.Abstractions
 
         private void ApplyChange(IEvent @event, bool isNew)
         {
-            ((dynamic)this).Apply(@event);
+            ((dynamic)this).Apply((dynamic)@event);
             if (isNew)
             {
                 _changes.Add(@event);

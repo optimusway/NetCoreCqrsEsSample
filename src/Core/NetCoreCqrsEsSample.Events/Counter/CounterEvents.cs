@@ -1,6 +1,6 @@
 namespace NetCoreCqrsEsSample.Events.Counter
 {
-    class CounterIncremented : BaseEvent
+    public class CounterIncremented : BaseEvent
     {
         public readonly int Value;
 
