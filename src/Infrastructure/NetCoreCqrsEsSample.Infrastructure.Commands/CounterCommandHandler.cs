@@ -1,5 +1,9 @@
+using System;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Core;
 using NetCoreCqrsEsSample.Commands;
+using NetCoreCqrsEsSample.Domain.Models;
 using NetCoreCqrsEsSample.Domain.Repositories;
 
 namespace NetCoreCqrsEsSample.Infrastructure.Commands
@@ -7,24 +11,30 @@ namespace NetCoreCqrsEsSample.Infrastructure.Commands
     public class CounterCommandHandler : ICommandHandler<IncrementCommand>,
                                          ICommandHandler<DecrementCommand>
     {
-        private readonly ICounterRepo _repo;
+        private readonly IEventRepo<Counter> _repo;
+        private readonly IComponentContext _context;
 
-        public CounterCommandHandler(ICounterRepo repo)
+        public CounterCommandHandler(IComponentContext context)
         {
-            this._repo = repo;
-
+            this._context = context;
+            this._repo = _context.Resolve<IEventRepo<Counter>>();
         }
 
-        public async Task HandleAsync(IncrementCommand command)
+        public void HandleAsync(IncrementCommand command)
         {
-            var counter = await _repo.GetAsync();
+            var counter = new Counter(42);
+            // _repo.GetById(Guid.NewGuid());
             counter.Increment();
+
+            _repo.Save(counter, counter.Version + 1);
         }
 
-        public async Task HandleAsync(DecrementCommand command)
+        public void HandleAsync(DecrementCommand command)
         {
-            var counter = await _repo.GetAsync();
+            var counter = _repo.GetById(Guid.NewGuid());
             counter.Decrement();
+
+            _repo.Save(counter, counter.Version + 1);
         }
     }
 }

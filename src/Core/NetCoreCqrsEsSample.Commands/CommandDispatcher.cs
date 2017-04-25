@@ -12,10 +12,10 @@ namespace NetCoreCqrsEsSample.Commands
             _context = context;
         }
 
-        public async Task DispatchAsync<T>(T command) where T : ICommand
+        public void DispatchAsync<T>(T command) where T : ICommand
         {
             var handler = _context.Resolve<ICommandHandler<T>>();
-            await handler.HandleAsync(command);
+            handler.HandleAsync(command);
         }
     }
 }

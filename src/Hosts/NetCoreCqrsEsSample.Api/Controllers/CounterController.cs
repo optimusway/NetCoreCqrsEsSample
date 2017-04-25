@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NetCoreCqrsEsSample.Commands;
@@ -15,9 +16,15 @@ namespace NetCoreCqrsEsSample.Api.Controllers
             _dispatcher = dispatcher;
         }
 
-        public async Task Get()
+        public void Get()
         {
-            await _dispatcher.DispatchAsync(new IncrementCommand());
+            throw new NotImplementedException();
+        }
+
+        [Route("inc")]
+        public void Increment()
+        {
+            _dispatcher.DispatchAsync(new IncrementCommand());
         }
     }
 }

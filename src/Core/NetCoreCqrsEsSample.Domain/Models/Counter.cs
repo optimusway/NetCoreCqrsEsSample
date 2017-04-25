@@ -8,6 +8,8 @@ namespace NetCoreCqrsEsSample.Domain.Models
     {
         public int Value { get; private set; }
 
+        public Counter() { }
+
         public Counter(int initialValue = 0)
         {
             this.Value = initialValue;

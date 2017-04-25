@@ -4,7 +4,7 @@ using NetCoreCqrsEsSample.Domain.Services;
 
 namespace NetCoreCqrsEsSample.Services.CounterService
 {
-    public class CounterService: ICounterService
+    public class CounterService : ICounterService
     {
         private readonly ICounterRepo _repo;
 
