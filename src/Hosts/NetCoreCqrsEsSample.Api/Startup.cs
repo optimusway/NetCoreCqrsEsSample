@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
@@ -8,12 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NetCoreCqrsEsSample.Api.IoC;
-using NetCoreCqrsEsSample.Data.EventStore;
-using NetCoreCqrsEsSample.Data.InMemory;
-using NetCoreCqrsEsSample.Domain.EventStore;
-using NetCoreCqrsEsSample.Domain.Models;
-using NetCoreCqrsEsSample.Domain.Repositories;
-using NetCoreCqrsEsSample.Events;
 
 namespace NetCoreCqrsEsSample.Api
 {
@@ -37,18 +30,10 @@ namespace NetCoreCqrsEsSample.Api
         {
             // Add framework services.
             services.AddMvc();
-            services.AddSingleton<ICounterRepo, CounterRepo>();
-            // services.AddSingleton<IEventRepo, EventRepo>();
 
             var builder = new ContainerBuilder();
             builder.RegisterModule<CommandModule>();
-
-            builder.RegisterGeneric(typeof(EventRepo<>))
-                .As(typeof(IEventRepo<>))
-                .InstancePerLifetimeScope();
-            builder.RegisterType<InMemoryEventStore>().As<IEventStore>().InstancePerLifetimeScope();
-            builder.RegisterType<EventDispatcher>().As<IEventDispatcher>().InstancePerLifetimeScope();
-
+            builder.RegisterModule<EventModule>();
             builder.Populate(services);
 
             this.ApplicationContainer = builder.Build();
