@@ -30,10 +30,6 @@ namespace NetCoreCqrsEsSample.Api.IoC
             builder.RegisterType<EventDispatcher>()
                 .As<IEventDispatcher>()
                 .InstancePerLifetimeScope();
-
-            builder.RegisterType<EventHandlerFactory>()
-                .As<IEventHandlerFactory>()
-                .InstancePerLifetimeScope();
         }
     }
 }

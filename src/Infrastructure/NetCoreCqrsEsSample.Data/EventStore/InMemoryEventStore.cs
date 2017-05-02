@@ -56,14 +56,14 @@ namespace NetCoreCqrsEsSample.Data.EventStore
 
             var i = expectedVersion;
 
-            foreach (var e in events)
+            foreach (var @event in events)
             {
-                e.Version = ++i;
+                @event.Version = ++i;
                 eventDescriptors.Add(
-                    new EventDescriptor(id, e, i)
+                    new EventDescriptor(id, @event, i)
                 );
 
-                _dispatcher.DispatchAsync<IEvent>(e);
+                _dispatcher.Dispatch((dynamic)@event);
             }
         }
     }

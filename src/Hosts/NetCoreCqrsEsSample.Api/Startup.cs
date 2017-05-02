@@ -36,9 +36,9 @@ namespace NetCoreCqrsEsSample.Api
             builder.RegisterModule<EventModule>();
             builder.Populate(services);
 
-            this.ApplicationContainer = builder.Build();
+            ApplicationContainer = builder.Build();
 
-            return new AutofacServiceProvider(this.ApplicationContainer);
+            return new AutofacServiceProvider(ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

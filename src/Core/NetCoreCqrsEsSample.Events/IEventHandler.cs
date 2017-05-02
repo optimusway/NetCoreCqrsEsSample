@@ -1,11 +1,7 @@
-using System.Threading.Tasks;
-
 namespace NetCoreCqrsEsSample.Events
 {
-    public interface IEventHandler<T> : IHandler where T : IEvent
+    public interface IEventHandler<T> where T : IEvent
     {
-        Task HandleAsync(T @event);
+        void Handle(T @event);
     }
-
-    public interface IHandler { }
 }
