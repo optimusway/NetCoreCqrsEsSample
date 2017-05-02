@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Autofac;
 
 namespace NetCoreCqrsEsSample.Commands

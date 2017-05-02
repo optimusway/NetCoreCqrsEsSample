@@ -15,7 +15,8 @@ namespace NetCoreCqrsEsSample.Domain.Repositories
 
         public T GetById(Guid aggregateId)
         {
-            var events = _eventStore.GetEvents(aggregateId);
+            // var events = _eventStore.GetEvents(aggregateId);
+            var events = new Events.IEvent[] { }; // just for testing purpose
             var aggregate = new T();
             aggregate.LoadFromHistory(events);
 
