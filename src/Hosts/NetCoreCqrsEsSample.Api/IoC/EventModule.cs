@@ -19,8 +19,8 @@ namespace NetCoreCqrsEsSample.Api.IoC
                 .AsClosedTypesOf(typeof(IEventHandler<>))
                 .InstancePerLifetimeScope();
 
-            builder.RegisterGeneric(typeof(EventRepo<>))
-                .As(typeof(IEventRepo<>))
+            builder.RegisterGeneric(typeof(EventRepository<>))
+                .As(typeof(IEventRepository<>))
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<InMemoryEventStore>()

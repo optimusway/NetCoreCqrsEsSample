@@ -4,11 +4,11 @@ using NetCoreCqrsEsSample.Domain.EventStore;
 
 namespace NetCoreCqrsEsSample.Domain.Repositories
 {
-    public class EventRepo<T> : IEventRepo<T> where T : AggregateRoot, new()
+    public class EventRepository<T> : IEventRepository<T> where T : AggregateRoot, new()
     {
         private readonly IEventStore _eventStore;
 
-        public EventRepo(IEventStore eventStore)
+        public EventRepository(IEventStore eventStore)
         {
             _eventStore = eventStore;
         }
