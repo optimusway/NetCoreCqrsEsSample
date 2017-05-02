@@ -1,6 +1,6 @@
 using NetCoreCqrsEsSample.Commands;
 
-namespace NetCoreCqrsEsSample.Infrastructure.Commands
+namespace NetCoreCqrsEsSample.Infrastructure.Commands.Counter
 {
     public class IncrementCommand: ICommand
     {

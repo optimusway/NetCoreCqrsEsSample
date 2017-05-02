@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using NetCoreCqrsEsSample.Commands;
 using NetCoreCqrsEsSample.Infrastructure.Commands;
+using NetCoreCqrsEsSample.Infrastructure.Commands.Counter;
 
 namespace NetCoreCqrsEsSample.Api.Controllers
 {

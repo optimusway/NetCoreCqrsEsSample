@@ -19,15 +19,15 @@ namespace NetCoreCqrsEsSample.Data.EventStore
 
             public EventDescriptor(Guid id, IEvent eventData, int version)
             {
-                this.Id = id;
-                this.EventData = eventData;
-                this.Version = version;
+                Id = id;
+                EventData = eventData;
+                Version = version;
             }
         }
 
         public InMemoryEventStore(IEventDispatcher dispatcher)
         {
-            this._dispatcher = dispatcher;
+            _dispatcher = dispatcher;
         }
 
         public IEnumerable<IEvent> GetEvents(Guid aggregateId)

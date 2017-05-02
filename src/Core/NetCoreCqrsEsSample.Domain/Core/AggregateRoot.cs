@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using NetCoreCqrsEsSample.Events;
 
-namespace NetCoreCqrsEsSample.Domain.Abstractions
+namespace NetCoreCqrsEsSample.Domain.Core
 {
     public abstract class AggregateRoot
     {

@@ -46,7 +46,7 @@ namespace NetCoreCqrsEsSample.Tests.Domain
             var counter = new Counter(5);
 
             //act
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
                 counter.Increment();
             }

@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using NetCoreCqrsEsSample.Domain.Models;
 using NetCoreCqrsEsSample.Domain.Repositories;
 
-namespace NetCoreCqrsEsSample.Data.InMemory
+namespace NetCoreCqrsEsSample.Data.Repository.InMemory
 {
-    public class CounterRepo : ICounterRepo
+    public class CounterRepository : ICounterRepo
     {
         public Counter Get()
         {

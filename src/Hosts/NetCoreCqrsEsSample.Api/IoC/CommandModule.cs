@@ -2,6 +2,7 @@ using System.Reflection;
 using Autofac;
 using NetCoreCqrsEsSample.Commands;
 using NetCoreCqrsEsSample.Infrastructure.Commands;
+using NetCoreCqrsEsSample.Infrastructure.Commands.Counter;
 
 namespace NetCoreCqrsEsSample.Api.IoC
 {

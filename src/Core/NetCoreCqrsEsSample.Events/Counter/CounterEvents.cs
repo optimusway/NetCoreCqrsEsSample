@@ -1,5 +1,3 @@
-using System;
-
 namespace NetCoreCqrsEsSample.Events.Counter
 {
     public class CounterIncremented : IEvent

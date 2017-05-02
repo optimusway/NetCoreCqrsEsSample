@@ -1,5 +1,4 @@
-using System;
-using NetCoreCqrsEsSample.Domain.Abstractions;
+using NetCoreCqrsEsSample.Domain.Core;
 using NetCoreCqrsEsSample.Events.Counter;
 
 namespace NetCoreCqrsEsSample.Domain.Models
@@ -12,20 +11,20 @@ namespace NetCoreCqrsEsSample.Domain.Models
 
         public Counter(int initialValue = 0)
         {
-            this.Value = initialValue;
+            Value = initialValue;
         }
 
-        public void Increment() => ApplyChange(new CounterIncremented(this.Value + 1));
-        public void Decrement() => ApplyChange(new CounterDecremented(this.Value - 1));
+        public void Increment() => ApplyChange(new CounterIncremented(Value + 1));
+        public void Decrement() => ApplyChange(new CounterDecremented(Value - 1));
 
         public void Apply(CounterIncremented e)
         {
-            this.Value = e.Value;
+            Value = e.Value;
         }
 
         public void Apply(CounterDecremented e)
         {
-            this.Value = e.Value;
+            Value = e.Value;
         }
 
         protected override void RegisterAppliers()

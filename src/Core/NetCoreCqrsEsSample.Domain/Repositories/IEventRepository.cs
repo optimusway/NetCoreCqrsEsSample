@@ -1,5 +1,5 @@
 using System;
-using NetCoreCqrsEsSample.Domain.Abstractions;
+using NetCoreCqrsEsSample.Domain.Core;
 
 namespace NetCoreCqrsEsSample.Domain.Repositories
 {
