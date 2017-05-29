@@ -7,24 +7,26 @@ namespace NetCoreCqrsEsSample.Domain.Models
     {
         public int Value { get; private set; }
 
-        public Counter() { }
+        public Counter()
+        {
+        }
 
         public Counter(int initialValue = 0)
         {
             Value = initialValue;
         }
 
-        public void Increment() => ApplyChange(new CounterIncremented(Value + 1));
-        public void Decrement() => ApplyChange(new CounterDecremented(Value - 1));
+        public void Increment() => ApplyChange(new CounterIncremented());
+        public void Decrement() => ApplyChange(new CounterDecremented());
 
         public void Apply(CounterIncremented e)
         {
-            Value = e.Value;
+            Value++;
         }
 
         public void Apply(CounterDecremented e)
         {
-            Value = e.Value;
+            Value--;
         }
 
         protected override void RegisterAppliers()

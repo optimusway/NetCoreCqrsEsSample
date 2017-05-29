@@ -6,7 +6,7 @@ namespace NetCoreCqrsEsSample.Events.Counter
     {
         public void Handle(CounterIncremented @event)
         {
-            Console.WriteLine(@event.Value);
+            Console.WriteLine();
         }
     }
 }
